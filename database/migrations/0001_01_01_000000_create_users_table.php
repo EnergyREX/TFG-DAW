@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('specialization')->nullable();
             $table->string('availability')->nullable();
             $table->string('state')->nullable();
+            $table->integer('role_id');
             $table->rememberToken();
             $table->timestamps();
         });
