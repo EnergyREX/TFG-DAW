@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('dni');
-            $table->string('pfpimg');
+            $table->string('pfpimg')->nullable();
             $table->string('name');
             $table->string('surname');
             $table->string('address');
@@ -22,10 +22,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('specialization');
-            $table->timestamp('join_date');
-            $table->string('availability');
-            $table->string('state');
+            $table->string('specialization')->nullable();
+            $table->string('availability')->nullable();
+            $table->string('state')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
