@@ -20,7 +20,7 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/login', [SessionController::class, 'index']);
 Route::post('/login', [SessionController::class, 'store']);
-Route::get('/logout', [SessionController::class, 'destroy']);
+Route::post('/logout', [SessionController::class, 'destroy']);
 
 
 // Appointments controller routes
