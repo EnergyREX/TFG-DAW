@@ -12,7 +12,7 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    function store(Request $request) {
+    function store() {
         // Validate Data
         $validated = request()->validate([
             'dni' => ['required'],

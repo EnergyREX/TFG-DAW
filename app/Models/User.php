@@ -22,11 +22,13 @@ class User extends Authenticatable
         'password',
         'specialization',
         'availability',
-        'state'
+        'state',
+        'role_id'
     ];
 
     protected $attributes = [
         'pfpimg' => null,
+        'role_id' => 1,
     ];
 
     /**
