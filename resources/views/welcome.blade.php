@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    @vite('resources/css/reset.css')
+    @vite('resources/css/app.css')
+    <!-- HTML in your document's head -->
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 </head>
 <body>
     @auth
@@ -13,7 +18,7 @@
             @csrf
             <button type="submit">Logout</button>
         </form>
-        <h1 class="text-3xl">You are logged in!</h1>
+        <h1 class="">You are logged in!</h1>
     @endauth
     @guest
     <h1>Not Registred... or logged in!!</h1>
