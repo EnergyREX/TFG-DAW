@@ -9,10 +9,12 @@ use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
+    // View for login
     function index() {
         return view('login');
     }
 
+    // Log in the user
     function store() {
         // Validate Data
         $validated = request()->validate([
@@ -37,6 +39,7 @@ class SessionController extends Controller
         
     }
 
+    // Logout
     function destroy() {
         Auth::logout();
         return redirect('/');

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
+    // View for /register
     function index() {
         return view('register');
     }
