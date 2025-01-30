@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -25,7 +26,7 @@ return new class extends Migration
             $table->string('specialization')->nullable();
             $table->string('availability')->nullable();
             $table->string('state')->nullable();
-            $table->integer('role_id');
+            $table->foreignIdFor(Role::class);
             $table->rememberToken();
             $table->timestamps();
         });
