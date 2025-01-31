@@ -28,7 +28,6 @@ class RegisterController extends Controller
         // Store in database
         $user = User::create($validated);
 
-        Auth::login($user);
         // Redirection
         return redirect('/login');
     }
