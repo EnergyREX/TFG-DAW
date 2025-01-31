@@ -9,4 +9,9 @@ class MedicalRecord extends Model
 {
     /** @use HasFactory<\Database\Factories\MedicalRecordFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'patient_dni',
+        'details'
+    ];
 }

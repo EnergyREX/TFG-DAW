@@ -21,6 +21,15 @@ class MedicalRecordController extends Controller
         return MedicalRecord::find($id);
     }
 
+    function create() {
+        $validated = request()->validate([
+            "patient_dni" => ['required'],
+            "details" => ['required'],
+        ]);
+        MedicalRecord::create($validated);
+        return redirect('/medicalrecords');        
+    }
+
     function destroy($id) {
         if (!MedicalRecord::find($id)) {
             return response('Not found', 404)
