@@ -9,7 +9,12 @@ class RoleController extends Controller
 {
     // Manage Role inserts, update, delete and index.
     function index() {
-        return view('roles');
+        $roles = Role::get();
+
+        return view('roles', [
+            'roles' => $roles
+        ]);
+
     }
 
     function show($id) {
@@ -26,7 +31,7 @@ class RoleController extends Controller
             "name" => ['required'],
         ]);
         Role::create($validated);
-        dd($validated);
+        return redirect('/roles');
     }
 
     function destroy($id) {
