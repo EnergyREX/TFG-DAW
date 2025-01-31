@@ -22,7 +22,7 @@ class AppointmentController extends Controller
             "status" => ['required']
         ]);
         Appointment::create($validated);
-        return redirect('/');
+        return redirect('/appointments');
     }
 
     function show($id) {
