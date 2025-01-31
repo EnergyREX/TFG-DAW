@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 class InventoryController extends Controller
 {
     function index() {
-        return view('inventories');
+        $inventories = Inventory::get();
+
+        return view('inventories', [
+            'inventories' => $inventories
+        ]);
+
     }
     
     function show($id) {
