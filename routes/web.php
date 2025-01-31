@@ -26,6 +26,8 @@ Route::post('/logout', [SessionController::class, 'destroy']);
 // Appointments controller routes
 Route::controller(AppointmentController::class)->group(function() {
     Route::get('/appointments', 'index');
+    Route::get('/appointments/{id}', 'show');
+    Route::delete('/appointments/{id}', 'destroy');
 });
 
 // Inventory controller routes

@@ -21,4 +21,14 @@ class AppointmentController extends Controller
 
         return Appointment::find($id);
     }
+
+    function destroy($id) {
+        if (!Appointment::find($id)) {
+            return response('Not found', 404)
+            ->header('Content-Type', 'text/plain');
+        }
+        return response(Appointment::destroy($id));
+
+    }
 }
+
