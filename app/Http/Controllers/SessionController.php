@@ -23,7 +23,6 @@ class SessionController extends Controller
         ]);
 
 
-        // Store in database
         if (!Auth::attempt($validated)) {
             throw ValidationException::withMessages([
                 'email' => 'Sorry, credentials do not match',
