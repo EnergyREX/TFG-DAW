@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('doctor_dni');
             $table->string('patient_dni');
+            $table->string('status');   
             $table->time('hour');
             $table->date('date');
             $table->timestamps();
