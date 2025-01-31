@@ -10,13 +10,13 @@
             <th>Last update</th>
         </thead>
         <tbody>
-    @foreach ($inventories as $inventories )
+    @foreach ($inventories as $inventory )
     <tr>
-        <td>{{$inventories->id}}</td>
-        <td>{{$inventories->item_name}}</td>
-        <td>{{$inventories->description}}</td>
-        <td>{{$inventories->quantity}}</td>
-        <td>{{$inventories->updated_at}}</td>
+        <td>{{$inventory->id}}</td>
+        <td>{{$inventory->item_name}}</td>
+        <td>{{$inventory->description}}</td>
+        <td>{{$inventory->quantity}}</td>
+        <td>{{$inventory->updated_at}}</td>
     </tr>
     @endforeach
         </tbody>
