@@ -20,4 +20,14 @@ class TreatmentController extends Controller
 
         return Treatment::find($id);
     }
+
+    function destroy($id) {
+        if (!Treatment::find($id)) {
+            return response('Not found', 404)
+            ->header('Content-Type', 'text/plain');
+        } else {
+            return response(Treatment::destroy($id));
+        }
+
+    }
 }

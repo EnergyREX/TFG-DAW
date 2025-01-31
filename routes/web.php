@@ -54,4 +54,6 @@ Route::controller(RoleController::class)->group(function() {
 // Treatment controller routes
 Route::controller(TreatmentController::class)->group(function() {
     Route::get('/treatments', 'index');
+    Route::get('/treatments/{id}', 'show');
+    Route::delete('/treatments/{id}', 'destroy');
 });
