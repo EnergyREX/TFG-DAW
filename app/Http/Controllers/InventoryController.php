@@ -19,4 +19,13 @@ class InventoryController extends Controller
 
         return Inventory::find($id);
     }
+
+    function destroy($id) {
+        if (!Inventory::find($id)) {
+            return response('Not found', 404)
+            ->header('Content-Type', 'text/plain');
+        }
+        return response(Inventory::destroy($id));
+
+    }
 }

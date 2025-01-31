@@ -33,6 +33,8 @@ Route::controller(AppointmentController::class)->group(function() {
 // Inventory controller routes
 Route::controller(InventoryController::class)->group(function() {
     Route::get('/inventories', 'index');
+    Route::get('/inventories/{id}', 'show');
+    Route::delete('/inventories/{id}', 'destroy');
 });
 
 // MedicalRecord controller routes
