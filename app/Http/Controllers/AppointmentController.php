@@ -10,7 +10,12 @@ class AppointmentController extends Controller
     // Manage Appointments inserts, update, delete and index.
 
     function index() {
-        return view('appointments');
+        $appointments = Appointment::get();
+
+        return view('appointments', [
+            'appointments' => $appointments
+        ]);
+
     }
 
     function create() {
