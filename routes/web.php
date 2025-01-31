@@ -47,6 +47,8 @@ Route::controller(MedicalRecordController::class)->group(function() {
 // Role controller routes
 Route::controller(RoleController::class)->group(function() {
     Route::get('/roles', 'index');
+    Route::get('/roles/{id}', 'show');
+    Route::delete('/roles/{id}', 'destroy');
 });
 
 // Treatment controller routes

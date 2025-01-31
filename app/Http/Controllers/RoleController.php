@@ -20,4 +20,13 @@ class RoleController extends Controller
 
         return Role::find($id);
     }
+
+    function destroy($id) {
+        if (!Role::find($id)) {
+            return response('Not found', 404)
+            ->header('Content-Type', 'text/plain');
+        }
+        return response(Role::destroy($id));
+
+    }
 }
