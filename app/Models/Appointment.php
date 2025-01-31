@@ -9,4 +9,12 @@ class Appointment extends Model
 {
     /** @use HasFactory<\Database\Factories\AppointmentFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'patient_dni',
+        'doctor_dni',
+        'hour',
+        'date',
+        'status'  
+      ];
 }

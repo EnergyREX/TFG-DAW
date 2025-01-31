@@ -21,6 +21,14 @@ class RoleController extends Controller
         return Role::find($id);
     }
 
+    function create() {
+        $validated = request()->validate([
+            "name" => ['required'],
+        ]);
+        Role::create($validated);
+        dd($validated);
+    }
+
     function destroy($id) {
         if (!Role::find($id)) {
             return response('Not found', 404)

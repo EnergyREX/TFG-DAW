@@ -20,6 +20,10 @@ class InventoryController extends Controller
         return Inventory::find($id);
     }
 
+    function create() {
+        
+    }
+
     function destroy($id) {
         if (!Inventory::find($id)) {
             return response('Not found', 404)

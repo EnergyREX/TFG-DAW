@@ -27,6 +27,7 @@ Route::post('/logout', [SessionController::class, 'destroy']);
 Route::controller(AppointmentController::class)->group(function() {
     Route::get('/appointments', 'index');
     Route::get('/appointments/{id}', 'show');
+    Route::post('/appointments', 'create');
     Route::delete('/appointments/{id}', 'destroy');
 });
 
@@ -48,6 +49,7 @@ Route::controller(MedicalRecordController::class)->group(function() {
 Route::controller(RoleController::class)->group(function() {
     Route::get('/roles', 'index');
     Route::get('/roles/{id}', 'show');
+    Route::post('/roles', 'create');
     Route::delete('/roles/{id}', 'destroy');
 });
 
@@ -55,5 +57,6 @@ Route::controller(RoleController::class)->group(function() {
 Route::controller(TreatmentController::class)->group(function() {
     Route::get('/treatments', 'index');
     Route::get('/treatments/{id}', 'show');
+    Route::post('/treatments', 'create');
     Route::delete('/treatments/{id}', 'destroy');
 });

@@ -13,6 +13,18 @@ class AppointmentController extends Controller
         return view('appointments');
     }
 
+    function create() {
+        $validated = request()->validate([
+            "patient_dni" => ['required'],
+            "doctor_dni" => ['required'],
+            "hour" => ['required'],
+            "date" => ['required'],
+            "status" => ['required']
+        ]);
+        Appointment::create($validated);
+        return redirect('/');
+    }
+
     function show($id) {
         if (!Appointment::find($id)) {
             return response('Not found', 404)

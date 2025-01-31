@@ -19,7 +19,7 @@ class TreatmentController extends Controller
         ]);
         Treatment::create($validated);
         return redirect('/treatments');
-    }    
+    }
 
     function show($id) {
         if (!Treatment::find($id)) {
