@@ -9,9 +9,13 @@ class MedicalRecordController extends Controller
 {
     // Manage MedicalRecords inserts, update, delete and index.
     function index() {
-        return view('medical_records');
-    }
+        $medicalrecords = MedicalRecord::get();
 
+        return view('medical_records', [
+            'medicalrecords' => $medicalrecords
+        ]);
+
+    }
     function show($id) {
         if (!MedicalRecord::find($id)) {
             return response('Not found', 404)
