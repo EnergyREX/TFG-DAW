@@ -12,6 +12,15 @@ class TreatmentController extends Controller
         return view('treatments');
     }
 
+    function create() {
+        $validated = request()->validate([
+            "name" => ['required'],
+            "description" => ['required']
+        ]);
+        Treatment::create($validated);
+        return redirect('/treatments');
+    }    
+
     function show($id) {
         if (!Treatment::find($id)) {
             return response('Not found', 404)
@@ -28,6 +37,5 @@ class TreatmentController extends Controller
         } else {
             return response(Treatment::destroy($id));
         }
-
     }
 }
