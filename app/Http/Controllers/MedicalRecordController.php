@@ -20,4 +20,13 @@ class MedicalRecordController extends Controller
 
         return MedicalRecord::find($id);
     }
+
+    function destroy($id) {
+        if (!MedicalRecord::find($id)) {
+            return response('Not found', 404)
+            ->header('Content-Type', 'text/plain');
+        }
+        return response(MedicalRecord::destroy($id));
+
+    }
 }

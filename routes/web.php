@@ -40,6 +40,8 @@ Route::controller(InventoryController::class)->group(function() {
 // MedicalRecord controller routes
 Route::controller(MedicalRecordController::class)->group(function() {
     Route::get('/medicalrecords', 'index');
+    Route::get('/medicalrecords/{id}', 'show');
+    Route::delete('/medicalrecord/{id}', 'destroy');
 });
 
 // Role controller routes
