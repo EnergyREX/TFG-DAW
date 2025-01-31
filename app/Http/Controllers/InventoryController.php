@@ -27,7 +27,7 @@ class InventoryController extends Controller
             "quantity" => ['required'],
         ]);
         Inventory::create($validated);
-        return redirect('/');        
+        return redirect('/inventories');        
     }
 
     function destroy($id) {
