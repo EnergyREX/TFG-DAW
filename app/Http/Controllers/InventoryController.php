@@ -21,7 +21,13 @@ class InventoryController extends Controller
     }
 
     function create() {
-        
+        $validated = request()->validate([
+            "item_name" => ['required'],
+            "description" => ['required'],
+            "quantity" => ['required'],
+        ]);
+        Inventory::create($validated);
+        return redirect('/');        
     }
 
     function destroy($id) {
