@@ -20,6 +20,11 @@
         <td>{{$appointment->date}}</td>
         <td>{{$appointment->status}}</td>
         <td>{{$appointment->created_at}}</td>
+        <td><form action="/appointments/{{$appointment->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">DEL</button>
+        </form></td>
     </tr>
     @endforeach
         </tbody>
