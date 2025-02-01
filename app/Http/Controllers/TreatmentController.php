@@ -9,9 +9,13 @@ class TreatmentController extends Controller
 {
     // Manage Treatment inserts, update, delete and index.
     function index() {
-        return view('treatments');
-    }
+        $treatments = Treatment::get();
 
+        return view('treatments', [
+            'treatments' => $treatments
+        ]);
+
+    }
     function create() {
         $validated = request()->validate([
             "name" => ['required'],
