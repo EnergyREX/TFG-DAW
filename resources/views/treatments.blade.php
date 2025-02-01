@@ -9,7 +9,7 @@
             <th>Last update</th>
         </thead>
         <tbody>
-    @foreach ($roles as $role )
+    @foreach ($treatments as $treatment )
     <tr>
         <td>{{$treatment->id}}</td>
         <td>{{$treatment->name}}</td>
