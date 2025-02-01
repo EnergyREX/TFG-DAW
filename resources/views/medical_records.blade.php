@@ -17,6 +17,11 @@
         <td>{{$medicalrecord->details}}</td>
         <td>{{$medicalrecord->created_at}}</td>
         <td>{{$medicalrecord->updated_at}}</td>
+        <td><form action="/medicalrecords/{{$medicalrecord->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">DEL</button>
+        </form></td>
     </tr>
     @endforeach
         </tbody>
