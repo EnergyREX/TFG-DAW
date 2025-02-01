@@ -59,6 +59,8 @@ Route::controller(RoleController::class)->group(function() {
 Route::controller(TreatmentController::class)->group(function() {
     Route::get('/treatments', 'index');
     Route::get('/treatments/{id}', 'show');
+    Route::get('/treatments/{id}/edit', 'edit');
+    Route::patch('/treatments/{id}', 'update');
     Route::post('/treatments', 'create');
     Route::delete('/treatments/{id}', 'destroy');
 });

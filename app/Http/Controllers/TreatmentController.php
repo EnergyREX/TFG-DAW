@@ -11,7 +11,7 @@ class TreatmentController extends Controller
     function index() {
         $treatments = Treatment::get();
 
-        return view('treatments', [
+        return view('treatments.index', [
             'treatments' => $treatments
         ]);
 
@@ -32,6 +32,35 @@ class TreatmentController extends Controller
         }
 
         return Treatment::find($id);
+    }
+
+    function edit($id) {
+        if(!Treatment::find($id)) {
+            return response('Not found', 404)->header('Content-Type', 'response/json');
+        } else {
+            $treatment = Treatment::find($id);
+            return view('treatments.edit', [
+                'treatment' => $treatment
+            ]);
+        }
+
+        
+    }
+
+    function update($id) {
+        $request = request()->validate([
+            'name' => ['required'],
+            'description' => ['required'],
+        ]);
+
+        $treatment = Treatment::find($id);
+        
+        $treatment->name = request()->name;
+        $treatment->description = request()->description;
+
+        $treatment->save();
+
+        return redirect('/treatments');
     }
 
     function destroy($id) {
