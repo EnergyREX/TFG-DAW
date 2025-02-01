@@ -7,6 +7,7 @@
             <th>Name</th>
             <th>Description</th>
             <th>Last update</th>
+            <th>Actions</th>
         </thead>
         <tbody>
     @foreach ($treatments as $treatment )
@@ -15,6 +16,11 @@
         <td>{{$treatment->name}}</td>
         <td>{{$treatment->description}}</td>
         <td>{{$treatment->updated_at}}</td>
+        <td><form action="/treatments/{{$treatment->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">DEL</button>
+        </form></td>
     </tr>
     @endforeach
         </tbody>
