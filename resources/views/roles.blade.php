@@ -15,6 +15,11 @@
         <td>{{$role->name}}</td>
         <td>{{$role->created_at}}</td>
         <td>{{$role->updated_at}}</td>
+        <td><form action="/roles/{{$role->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">DEL</button>
+        </form></td>
     </tr>
     @endforeach
         </tbody>
