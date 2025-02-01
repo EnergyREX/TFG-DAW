@@ -1,4 +1,5 @@
 <div>
+    <x-navbar />
     <x-treatment-form />
 
     <table>
@@ -21,6 +22,7 @@
             @method('DELETE')
             <button type="submit">DEL</button>
         </form></td>
+        <td><a href="/treatments/{{$treatment->id}}/edit">UPD</td>
     </tr>
     @endforeach
         </tbody>
