@@ -17,6 +17,11 @@
         <td>{{$inventory->description}}</td>
         <td>{{$inventory->quantity}}</td>
         <td>{{$inventory->updated_at}}</td>
+        <td><form action="/inventories/{{$inventory->id}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">DEL</button>
+        </form></td>
     </tr>
     @endforeach
         </tbody>
