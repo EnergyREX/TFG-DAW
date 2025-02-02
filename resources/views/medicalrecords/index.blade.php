@@ -1,4 +1,5 @@
 <div>
+    <x-navbar />
     <x-medicalrecord-form />
 
     <table>
@@ -22,6 +23,7 @@
             @method('DELETE')
             <button type="submit">DEL</button>
         </form></td>
+        <td><a href="/medicalrecords/{{$medicalrecord->id}}/edit">UPD</a></td>
     </tr>
     @endforeach
         </tbody>

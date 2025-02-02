@@ -43,6 +43,8 @@ Route::controller(InventoryController::class)->group(function() {
 Route::controller(MedicalRecordController::class)->group(function() {
     Route::get('/medicalrecords', 'index');
     Route::get('/medicalrecords/{id}', 'show');
+    Route::get('/medicalrecords/{id}/edit', 'edit');
+    Route::patch('/medicalrecords/{id}', 'update');
     Route::post('/medicalrecords', 'create');
     Route::delete('/medicalrecords/{id}', 'destroy');
 });

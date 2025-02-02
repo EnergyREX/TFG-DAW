@@ -11,7 +11,7 @@ class MedicalRecordController extends Controller
     function index() {
         $medicalrecords = MedicalRecord::get();
 
-        return view('medical_records', [
+        return view('medicalrecords.index', [
             'medicalrecords' => $medicalrecords
         ]);
 
@@ -23,6 +23,35 @@ class MedicalRecordController extends Controller
         }
 
         return MedicalRecord::find($id);
+    }
+
+    function edit($id) {
+        if(!MedicalRecord::find($id)) {
+            return response('Not found', 404)->header('Content-Type', 'response/json');
+        } else {
+            $medicalrecord = MedicalRecord::find($id);
+            return view('medicalrecords.edit', [
+                'medicalrecord' => $medicalrecord
+            ]);
+        }
+
+        
+    }
+
+    function update($id) {
+        $request = request()->validate([
+            'patient_dni' => ['required'],
+            'details' => ['required'],
+        ]);
+
+        $medicalrecord = MedicalRecord::find($id);
+        
+        $medicalrecord->patient_dni = request()->patient_dni;
+        $medicalrecord->details = request()->details;
+
+        $medicalrecord->save();
+
+        return redirect('/medicalrecords');
     }
 
     function create() {
