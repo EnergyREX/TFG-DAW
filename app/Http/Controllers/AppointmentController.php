@@ -12,7 +12,7 @@ class AppointmentController extends Controller
     function index() {
         $appointments = Appointment::get();
 
-        return view('appointments', [
+        return view('appointments.index', [
             'appointments' => $appointments
         ]);
 
@@ -27,6 +27,36 @@ class AppointmentController extends Controller
             "status" => ['required']
         ]);
         Appointment::create($validated);
+        return redirect('/appointments');
+    }
+
+    function edit($id) {
+        if(!Appointment::find($id)) {
+            return response('Not found', 404)->header('Content-Type', 'response/json');
+        } else {
+            $appointment = Appointment::find($id);
+            return view('appointments.edit', [
+                'appointments' => $appointment
+            ]);
+        }
+    }
+
+    function update($id) {
+        $request = request()->validate([
+            "hour" => ['required'],
+            "date" => ['required'],
+            "status" => ['required']
+        ]);
+
+        $appointment = Appointment::find($id);
+        
+        $appointment->hour = request()->hour;
+        $appointment->date = request()->date;
+        $appointment->status = request()->status;
+
+        $appointment->save();
+
+        
         return redirect('/appointments');
     }
 

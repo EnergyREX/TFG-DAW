@@ -1,4 +1,5 @@
 <div>
+    <x-navbar />
     <x-appointment-form />
     <table>
         <thead>
@@ -24,6 +25,7 @@
             @csrf
             @method('DELETE')
             <button type="submit">DEL</button>
+        <td><a href="/appointments/{{$appointment->id}}/edit">UPD</a></td>
         </form></td>
     </tr>
     @endforeach

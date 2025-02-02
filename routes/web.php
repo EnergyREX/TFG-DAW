@@ -27,6 +27,8 @@ Route::post('/logout', [SessionController::class, 'destroy']);
 Route::controller(AppointmentController::class)->group(function() {
     Route::get('/appointments', 'index');
     Route::get('/appointments/{id}', 'show');
+    Route::get('/appointments/{id}/edit', 'edit');
+    Route::patch('/appointments/{id}', 'update');
     Route::post('/appointments', 'create');
     Route::delete('/appointments/{id}', 'destroy');
 });
