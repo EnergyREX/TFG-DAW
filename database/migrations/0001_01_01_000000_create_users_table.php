@@ -14,21 +14,22 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('dni');
+            $table->string('dni')->unique();
             $table->string('pfpimg')->nullable();
             $table->string('name');
             $table->string('surname');
             $table->string('address');
-            $table->string('phone_number');
+            $table->string('phone_number')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('specialization')->nullable();
             $table->string('availability')->nullable();
             $table->string('state')->nullable();
-            $table->foreignIdFor(Role::class);
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedBigInteger('role_id');
+            $table->foreign('role_id')->references('id')->on('roles');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

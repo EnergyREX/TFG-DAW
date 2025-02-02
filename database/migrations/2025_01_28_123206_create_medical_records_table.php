@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('patient_dni');
             $table->text('details');
             $table->timestamps();
+
+            $table->foreign('patient_dni')->references('dni')->on('users');
         });
     }
 
