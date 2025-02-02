@@ -17,4 +17,18 @@ class Appointment extends Model
         'date',
         'status'  
       ];
+
+      public static function listWithExtra ($dni) {
+        return self::select('appointments.*', 'users.name', 'users.surname')
+        ->join('users', 'users.dni', '=', $dni)
+        ->get();
+      }
+
+      function patient() {
+        return $this->belongsTo(User::class, 'patient_dni', 'dni');
+      }
+
+      function doctor() {
+        return $this->belongsTo(User::class, 'doctor_dni', 'dni');
+      }
 }

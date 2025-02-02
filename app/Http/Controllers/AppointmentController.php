@@ -10,12 +10,19 @@ class AppointmentController extends Controller
     // Manage Appointments inserts, update, delete and index.
 
     function index() {
-        $appointments = Appointment::get();
-
+        $appointments = Appointment::join('users as patients', 'appointments.patient_dni', '=', 'patients.dni')
+        ->join('users as doctors', 'appointments.doctor_dni', '=', 'doctors.dni')
+        ->select(
+            'appointments.*',
+            'patients.name as patient_name',
+            'doctors.name as doctor_name'
+        )
+        ->get();
+        
         return view('appointments.index', [
             'appointments' => $appointments
+            
         ]);
-
     }
 
     function create() {
@@ -56,7 +63,6 @@ class AppointmentController extends Controller
 
         $appointment->save();
 
-        
         return redirect('/appointments');
     }
 
