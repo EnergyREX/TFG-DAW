@@ -37,6 +37,8 @@ Route::controller(AppointmentController::class)->group(function() {
 Route::controller(InventoryController::class)->group(function() {
     Route::get('/inventories', 'index');
     Route::get('/inventories/{id}', 'show');
+    Route::get('/inventories/{id}/edit', 'edit');
+    Route::patch('/inventories/{id}', 'update');
     Route::post('/inventories', 'create');
     Route::delete('/inventories/{id}', 'destroy');
 });
