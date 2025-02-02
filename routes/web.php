@@ -51,6 +51,8 @@ Route::controller(MedicalRecordController::class)->group(function() {
 Route::controller(RoleController::class)->group(function() {
     Route::get('/roles', 'index');
     Route::get('/roles/{id}', 'show');
+    Route::get('/roles/{id}/edit', 'edit');
+    Route::patch('/roles/{id}', 'update');
     Route::post('/roles', 'create');
     Route::delete('/roles/{id}', 'destroy');
 });

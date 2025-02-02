@@ -11,7 +11,7 @@ class RoleController extends Controller
     function index() {
         $roles = Role::get();
 
-        return view('roles', [
+        return view('roles.index', [
             'roles' => $roles
         ]);
 
@@ -31,6 +31,31 @@ class RoleController extends Controller
             "name" => ['required'],
         ]);
         Role::create($validated);
+        return redirect('/roles');
+    }
+
+    function edit($id) {
+        if(!Role::find($id)) {
+            return response('Not found', 404)->header('Content-Type', 'response/json');
+        } else {
+            $role = Role::find($id);
+            return view('roles.edit', [
+                'role' => $role
+            ]);
+        }
+    }
+
+    function update($id) {
+        $request = request()->validate([
+            'name' => ['required'],
+        ]);
+
+        $role = Role::find($id);
+        
+        $role->name = request()->name;
+
+        $role->save();
+
         return redirect('/roles');
     }
 

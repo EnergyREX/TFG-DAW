@@ -1,4 +1,5 @@
 <div>
+    <x-navbar />
     <x-role-form />
 
     <table>
@@ -20,6 +21,7 @@
             @method('DELETE')
             <button type="submit">DEL</button>
         </form></td>
+        <td><td><a href="/roles/{{$role->id}}/edit">UPD</td></td>
     </tr>
     @endforeach
         </tbody>
