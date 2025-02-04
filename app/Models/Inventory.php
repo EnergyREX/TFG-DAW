@@ -9,4 +9,10 @@ class Inventory extends Model
 {
     /** @use HasFactory<\Database\Factories\InventoryFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'item_name',
+        'description',
+        'quantity'
+    ];
 }

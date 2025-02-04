@@ -22,20 +22,17 @@ class SessionController extends Controller
             'password' => ['required']
         ]);
 
-
         if (!Auth::attempt($validated)) {
             throw ValidationException::withMessages([
                 'email' => 'Sorry, credentials do not match',
                 'password' => 'Sorry, credentials do not match'
             ]);
+        } else {
+            request()->session()->regenerate();
         }
-    
-        request()->session()->regenerate();
         
         // Redirection
         return redirect('/');
-        // Redirect to Dashboard
-        
     }
 
     // Logout

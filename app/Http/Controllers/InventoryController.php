@@ -8,7 +8,12 @@ use Illuminate\Http\Request;
 class InventoryController extends Controller
 {
     function index() {
-        return view('inventories');
+        $inventories = Inventory::get();
+
+        return view('inventories.index', [
+            'inventories' => $inventories
+        ]);
+
     }
     
     function show($id) {
@@ -27,7 +32,37 @@ class InventoryController extends Controller
             "quantity" => ['required'],
         ]);
         Inventory::create($validated);
-        return redirect('/');        
+        return redirect('/inventories');        
+    }
+
+    function edit($id) {
+        if(!Inventory::find($id)) {
+            return response('Not found', 404)->header('Content-Type', 'response/json');
+        } else {
+            $inventory = Inventory::find($id);
+            return view('inventories.edit', [
+                'inventory' => $inventory
+            ]);
+        }
+    }
+
+    function update($id) {
+        $request = request()->validate([
+            "item_name" => ['required'],
+            "description" => ['required'],
+            "quantity" => ['required'],
+        ]);
+
+        $inventories = Inventory::find($id);
+        
+        $inventories->item_name = request()->item_name;
+        $inventories->description = request()->description;
+        $inventories->quantity = request()->quantity;
+
+        $inventories->save();
+
+        
+        return redirect('/inventories');
     }
 
     function destroy($id) {

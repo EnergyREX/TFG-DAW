@@ -13,12 +13,16 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->string('doctor_dni');
-            $table->string('patient_dni');
+            $table->string('doctor_dni')->references('dni')->on('users');
+            $table->string('patient_dni')->references('dni')->on('users');
             $table->string('status');   
             $table->time('hour');
             $table->date('date');
             $table->timestamps();
+
+            $table->foreign('doctor_dni')->references('dni')->on('users');
+            $table->foreign('patient_dni')->references('dni')->on('users');
+
         });
     }
 

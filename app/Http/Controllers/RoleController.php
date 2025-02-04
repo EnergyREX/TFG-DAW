@@ -9,7 +9,12 @@ class RoleController extends Controller
 {
     // Manage Role inserts, update, delete and index.
     function index() {
-        return view('roles');
+        $roles = Role::get();
+
+        return view('roles.index', [
+            'roles' => $roles
+        ]);
+
     }
 
     function show($id) {
@@ -26,7 +31,32 @@ class RoleController extends Controller
             "name" => ['required'],
         ]);
         Role::create($validated);
-        dd($validated);
+        return redirect('/roles');
+    }
+
+    function edit($id) {
+        if(!Role::find($id)) {
+            return response('Not found', 404)->header('Content-Type', 'response/json');
+        } else {
+            $role = Role::find($id);
+            return view('roles.edit', [
+                'role' => $role
+            ]);
+        }
+    }
+
+    function update($id) {
+        $request = request()->validate([
+            'name' => ['required'],
+        ]);
+
+        $role = Role::find($id);
+        
+        $role->name = request()->name;
+
+        $role->save();
+
+        return redirect('/roles');
     }
 
     function destroy($id) {

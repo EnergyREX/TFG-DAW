@@ -27,6 +27,8 @@ Route::post('/logout', [SessionController::class, 'destroy']);
 Route::controller(AppointmentController::class)->group(function() {
     Route::get('/appointments', 'index');
     Route::get('/appointments/{id}', 'show');
+    Route::get('/appointments/{id}/edit', 'edit');
+    Route::patch('/appointments/{id}', 'update');
     Route::post('/appointments', 'create');
     Route::delete('/appointments/{id}', 'destroy');
 });
@@ -35,6 +37,8 @@ Route::controller(AppointmentController::class)->group(function() {
 Route::controller(InventoryController::class)->group(function() {
     Route::get('/inventories', 'index');
     Route::get('/inventories/{id}', 'show');
+    Route::get('/inventories/{id}/edit', 'edit');
+    Route::patch('/inventories/{id}', 'update');
     Route::post('/inventories', 'create');
     Route::delete('/inventories/{id}', 'destroy');
 });
@@ -43,13 +47,18 @@ Route::controller(InventoryController::class)->group(function() {
 Route::controller(MedicalRecordController::class)->group(function() {
     Route::get('/medicalrecords', 'index');
     Route::get('/medicalrecords/{id}', 'show');
-    Route::delete('/medicalrecord/{id}', 'destroy');
+    Route::get('/medicalrecords/{id}/edit', 'edit');
+    Route::patch('/medicalrecords/{id}', 'update');
+    Route::post('/medicalrecords', 'create');
+    Route::delete('/medicalrecords/{id}', 'destroy');
 });
 
 // Role controller routes
 Route::controller(RoleController::class)->group(function() {
     Route::get('/roles', 'index');
     Route::get('/roles/{id}', 'show');
+    Route::get('/roles/{id}/edit', 'edit');
+    Route::patch('/roles/{id}', 'update');
     Route::post('/roles', 'create');
     Route::delete('/roles/{id}', 'destroy');
 });
@@ -58,6 +67,8 @@ Route::controller(RoleController::class)->group(function() {
 Route::controller(TreatmentController::class)->group(function() {
     Route::get('/treatments', 'index');
     Route::get('/treatments/{id}', 'show');
+    Route::get('/treatments/{id}/edit', 'edit');
+    Route::patch('/treatments/{id}', 'update');
     Route::post('/treatments', 'create');
     Route::delete('/treatments/{id}', 'destroy');
 });

@@ -1,4 +1,5 @@
 <main class="flex ">
+    <x-navbar />
     <h1>Register - MyClinic</h1>
     <form method="POST" action="/register">
         @csrf

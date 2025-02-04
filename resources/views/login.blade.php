@@ -1,4 +1,5 @@
 <div>
+    <x-navbar />
     <h1>Login - MyClinic</h1>
 
     <form method="POST" action="/login">
