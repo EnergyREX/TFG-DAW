@@ -32,20 +32,22 @@ return new class extends Migration
             $table->string('specialization')->nullable();
             $table->string('availability')->nullable();
             $table->string('state')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
             $table->foreignIdFor(\App\Models\Role::class);
+            $table->rememberToken();
+            $table->timestamps();  
         });
 
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
         
         Schema::create('roles_users', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Role::class);
             $table->foreignIdFor(\App\Models\User::class);
+            $table->timestamps();
         });
 
 
