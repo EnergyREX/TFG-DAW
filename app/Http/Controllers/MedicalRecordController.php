@@ -25,6 +25,10 @@ class MedicalRecordController extends Controller
         return MedicalRecord::find($id);
     }
 
+    function getAll() {
+        return MedicalRecord::get();
+    }
+
     function edit($id) {
         if(!MedicalRecord::find($id)) {
             return response('Not found', 404)->header('Content-Type', 'response/json');

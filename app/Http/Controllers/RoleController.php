@@ -26,6 +26,10 @@ class RoleController extends Controller
         return Role::find($id);
     }
 
+    function getAll() {
+        return Role::get();
+    }
+
     function create() {
         $validated = request()->validate([
             "name" => ['required'],
@@ -44,6 +48,8 @@ class RoleController extends Controller
             ]);
         }
     }
+
+    
 
     function update($id) {
         $request = request()->validate([

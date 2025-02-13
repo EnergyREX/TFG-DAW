@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['request' => request()->user()->role_id]);
 });
 
 Route::get('/register', [RegisterController::class, 'index']);
@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function() {
     Route::controller(AppointmentController::class)->group(function() {
         Route::get('/appointments', 'index');
         Route::get('/appointments/{id}', 'show');
+        Route::get('/appointments/api/all', 'getAll');
         Route::get('/appointments/{id}/edit', 'edit');
         Route::patch('/appointments/{id}', 'update');
         Route::post('/appointments', 'create');
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function() {
     Route::controller(InventoryController::class)->group(function() {
         Route::get('/inventories', 'index');
         Route::get('/inventories/{id}', 'show');
+        Route::get('/inventories/api/all', 'getAll');
         Route::get('/inventories/{id}/edit', 'edit');
         Route::patch('/inventories/{id}', 'update');
         Route::post('/inventories', 'create');
@@ -48,6 +50,7 @@ Route::middleware('auth')->group(function() {
     Route::controller(MedicalRecordController::class)->group(function() {
         Route::get('/medicalrecords', 'index');
         Route::get('/medicalrecords/{id}', 'show');
+        Route::get('/medicalrecords/api/all', 'getAll');
         Route::get('/medicalrecords/{id}/edit', 'edit');
         Route::patch('/medicalrecords/{id}', 'update');
         Route::post('/medicalrecords', 'create');
@@ -58,6 +61,7 @@ Route::middleware('auth')->group(function() {
     Route::controller(RoleController::class)->group(function() {
         Route::get('/roles', 'index');
         Route::get('/roles/{id}', 'show');
+        Route::get('/roles/api/all', 'getAll');
         Route::get('/roles/{id}/edit', 'edit');
         Route::patch('/roles/{id}', 'update');
         Route::post('/roles', 'create');
@@ -68,6 +72,7 @@ Route::middleware('auth')->group(function() {
     Route::controller(TreatmentController::class)->group(function() {
         Route::get('/treatments', 'index');
         Route::get('/treatments/{id}', 'show');
+        Route::get('/treatments/api/all', 'getAll');
         Route::get('/treatments/{id}/edit', 'edit');
         Route::patch('/treatments/{id}', 'update');
         Route::post('/treatments', 'create');

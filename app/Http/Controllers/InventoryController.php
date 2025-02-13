@@ -25,6 +25,10 @@ class InventoryController extends Controller
         return Inventory::find($id);
     }
 
+    function getAll() {
+        return Inventory::get();
+    }
+
     function create() {
         $validated = request()->validate([
             "item_name" => ['required'],

@@ -75,6 +75,10 @@ class AppointmentController extends Controller
         return Appointment::find($id);
     }
 
+    function getAll() {
+        return Appointment::get();
+    }
+
     function destroy($id) {
         if (!Appointment::find($id)) {
             return response('Not found', 404)

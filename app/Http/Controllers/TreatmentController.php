@@ -34,6 +34,10 @@ class TreatmentController extends Controller
         return Treatment::find($id);
     }
 
+    function getAll() {
+        return Treatment::get();
+    }
+
     function edit($id) {
         if(!Treatment::find($id)) {
             return response('Not found', 404)->header('Content-Type', 'response/json');
