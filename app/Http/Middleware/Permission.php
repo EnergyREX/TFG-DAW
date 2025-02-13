@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Role;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,9 +14,17 @@ class Permission
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
+
+     // Middleware to check if user has a role with an specific permission.
     public function handle(Request $request, Closure $next, $permission): Response
     {
-        $role = auth()->user()->role_id;
+
+        $role_id = auth()->user()->role_id;
+        $user_role = Role::find($role_id);
+
+        if (!$user_role->hasPermission($permission)) {
+            abort(403, 'You cannot perform this action');
+        }
         
         return $next($request);
     }
