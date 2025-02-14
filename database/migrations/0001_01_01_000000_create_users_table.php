@@ -42,13 +42,6 @@ return new class extends Migration
             $table->string('name');
             $table->timestamps();
         });
-        
-        Schema::create('roles_users', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(\App\Models\Role::class);
-            $table->foreignIdFor(\App\Models\User::class);
-            $table->timestamps();
-        });
 
 
         Schema::create('roles_permissions', function (Blueprint $table) {
