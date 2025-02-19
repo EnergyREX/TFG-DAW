@@ -64,4 +64,10 @@ class User extends Authenticatable
     function role() {
         return $this->belongsTo(Role::class);
     }
+
+    function getRole() {
+        $role_id = $this->role_id;
+        $role = Role::find($role_id);
+        return $role;
+    }
 }
