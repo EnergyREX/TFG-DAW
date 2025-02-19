@@ -17,7 +17,10 @@ class InventoryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'item_name' => fake()->word(),
+            'description' => fake()->paragraph(),
+            'quantity' => fake()->randomNumber(3)
+            
         ];
     }
 }

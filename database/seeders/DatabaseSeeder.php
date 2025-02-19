@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Inventory;
 use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
@@ -103,5 +104,7 @@ class DatabaseSeeder extends Seeder
             'role_id' => 1,
             'remember_token' => null,
         ]);
+
+        Inventory::factory(10);
     }    
 }
