@@ -1,3 +1,8 @@
+@php
+    $role = auth()->user()->getRole();
+    echo $role->hasPermission('delete_appointments')
+@endphp
+
 <div>
     <x-navbar />
     <x-appointment-form />
@@ -12,6 +17,7 @@
             <th>Date</th>
             <th>Status</th>
             <th>Creation date</th>
+            <th>Actions</th>
         </thead>
         <tbody>
     @foreach ($appointments as $appointment )
@@ -25,12 +31,17 @@
         <td>{{$appointment->date}}</td>
         <td>{{$appointment->status}}</td>
         <td>{{$appointment->created_at}}</td>
+
+        @if ($role->hasPermission('delete_appointments'))
         <td><form action="/appointments/{{$appointment->id}}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit">DEL</button>
-        <td><a href="/appointments/{{$appointment->id}}/edit">UPD</a></td>
         </form></td>
+        @endif
+        @if ($role->hasPermission('edit_appointments'))
+        <td><a href="/appointments/{{$appointment->id}}/edit">UPD</a></td>
+        @endif
     </tr>
     @endforeach
         </tbody>
