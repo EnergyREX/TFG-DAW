@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function() {
         Route::get('/appointments/{id}/edit', 'edit')->middleware('permission:edit_appointments');
         Route::patch('/appointments/{id}', 'update')->middleware('permission:edit_appointments');
         Route::post('/appointments', 'create')->middleware('permission:new_appointments');
-        Route::delete('/appointments/{id}', 'destroy')->middleware('permission:delete_appointment');
+        Route::delete('/appointments/{id}', 'destroy')->middleware('permission:delete_appointments');
     });
 
     // Inventory controller routes
