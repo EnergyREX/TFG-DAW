@@ -10,8 +10,8 @@
     <!-- HTML in your document's head -->
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @vite('resources/css/reset.css')
+    @vite('resources/css/app.css')
 </head>
 <body>
     <x-navbar />
@@ -21,6 +21,9 @@
             <button type="submit">Logout</button>
         </form>
         <h1 class="">You are logged in!</h1>
+        <div id="content"></div>
+        @vite('resources/js/app.js')
+
     @endauth
     
     @guest
