@@ -1,3 +1,7 @@
+<x-layout>
+    <x-slot:title>
+        Register in our site | MyClinic
+    </x-slot>
 <main class="flex ">
     <x-navbar />
     <h1>Register - MyClinic</h1>
@@ -55,3 +59,4 @@
         <button type="submit">Register</button>
     </form>    
 </main>
+</x-layout>

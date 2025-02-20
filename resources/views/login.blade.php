@@ -1,3 +1,7 @@
+<x-layout>
+    <x-slot:title>
+        Log in our site | MyClinic
+    </x-slot>
 <div>
     <x-navbar />
     <h1>Login - MyClinic</h1>
@@ -19,3 +23,4 @@
         <button type="submit">Log in</button>
     </form>
 </div>
+</x-layout>
