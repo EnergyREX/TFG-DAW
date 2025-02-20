@@ -1,9 +1,9 @@
-<x-layout>
+<x-layouts.auth>
     <x-slot:title>
         Log in our site | MyClinic
     </x-slot>
-<div>
-    <x-navbar />
+<main class="main">
+    <div class="auth">
     <h1>Login - MyClinic</h1>
 
     <form method="POST" action="/login">
@@ -22,5 +22,7 @@
 
         <button type="submit">Log in</button>
     </form>
-</div>
-</x-layout>
+    <p>Not registred? <a href="/register">Register</a></p>
+    </div>
+</main>
+</x-layouts.auth>
