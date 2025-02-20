@@ -1,0 +1,63 @@
+/* Authentication styles for register and login pages */
+
+/* Use of Inter font */
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.auth-reg form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.auth-reg div {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  border-radius: 6px;
+  border: 1px solid black
+}
+
+label {
+  font-size: 1.125rem;
+  margin-bottom: 0.3rem;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1.125rem;
+}
+
+form button {
+  margin-top: 1rem;
+  padding: 0.6rem;
+  font-size: 1.125rem;
+}
+
+.register-btn {
+  grid-column: 1/3;
+}

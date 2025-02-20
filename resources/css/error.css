@@ -1,0 +1,39 @@
+/** Error pages style */
+
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: 600;
+}
+
+.error__card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 200;
+}
+
+.error__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid black;
+  padding: 2rem;
+  border-radius: 6px;
+}
